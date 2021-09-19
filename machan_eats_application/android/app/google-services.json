@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "900933617553",
+    "project_id": "machan-eats-app",
+    "storage_bucket": "machan-eats-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900933617553:android:a17a55d49ceeee098bbc30",
+        "android_client_info": {
+          "package_name": "com.example.machan_eats_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900933617553-8jbj1pj90e4c7p9lpk9avqp6epvf166v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLwhswz0CL1JJCN2sdgsAEBkZJkBGEqDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900933617553-8jbj1pj90e4c7p9lpk9avqp6epvf166v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
