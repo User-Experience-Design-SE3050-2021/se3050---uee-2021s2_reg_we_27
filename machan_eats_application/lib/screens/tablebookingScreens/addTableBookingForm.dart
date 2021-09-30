@@ -35,7 +35,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
   bool _isProcessing = false;
 
   final TextEditingController _purposeController = TextEditingController();
-  final TextEditingController _branchController = TextEditingController();
+  // final TextEditingController _branchController = TextEditingController();
   final TextEditingController _tableSizeController = TextEditingController();
   final TextEditingController _decorationThemeController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
@@ -108,85 +108,70 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    // DropdownButtonFormField(
-                    //   style: TextStyle(
-                    //     color: Colors.grey,
-                    //   ),
-                    //   dropdownColor: Colors.black,
-                    //   decoration: InputDecoration(
-                    //     fillColor: Colors.black,
-                    //     filled: true,
-                    //     labelStyle: TextStyle(color: Colors.yellowAccent),
-                    //     hintStyle: const TextStyle(
-                    //         color: Colors.white
-                    //     ),
-                    //     errorStyle: const TextStyle(
-                    //       color: Colors.redAccent,
-                    //       fontWeight: FontWeight.bold,
-                    //     ),
-                    //     focusedBorder: OutlineInputBorder(
-                    //         borderRadius: BorderRadius.circular(8.0),
-                    //         borderSide: const BorderSide(
-                    //           color: Colors.amber,
-                    //           width: 2,
-                    //         )
-                    //     ),
-                    //     enabledBorder: OutlineInputBorder(
-                    //         borderRadius: BorderRadius.circular(8.0),
-                    //         borderSide: const BorderSide(
-                    //           color: Colors.amber,
-                    //         )
-                    //     ),
-                    //     errorBorder: OutlineInputBorder(
-                    //         borderRadius: BorderRadius.circular(8.0),
-                    //         borderSide: const BorderSide(
-                    //           color: Colors.redAccent,
-                    //           width: 2,
-                    //         )
-                    //     ),
-                    //     focusedErrorBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(8.0),
-                    //       borderSide: const BorderSide(
-                    //         color: Colors.redAccent,
-                    //         width: 2,
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   onChanged: (value) {
-                    //     setState(() => getBranch = value.toString());
-                    //   },
-                    //   value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
-                    //   validator: (value) {
-                    //         if(value == null || value.toString().isEmpty){
-                    //           return 'This source can not be empty.';
-                    //         }
-                    //         getBranch = value.toString();
-                    //   },
-                    //   items: branches.map((branch) {
-                    //     return DropdownMenuItem(
-                    //       child: Text(branch),
-                    //       value: branch,
-                    //     );
-                    //   }).toList(),
-                    //   // selectedItemBuilder: (context) {
-                    //   //   return [Text(getBranch)];
-                    //   // },
-                    // ),
-                    CustomFormField(
-                      initialValue: "",
-                      isLabelEnabled: false,
-                      controller: _branchController,
-                      focusNode: widget.branchFocusNode,
-                      keyboardType: TextInputType.text,
-                      inputAction: TextInputAction.next,
-                      validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
-                        getBranch = value;
+                    DropdownButtonFormField(
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                      dropdownColor: Colors.black,
+                      decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        filled: true,
+                        labelStyle: TextStyle(color: Colors.yellowAccent),
+                        hintStyle: const TextStyle(
+                            color: Colors.white
+                        ),
+                        errorStyle: const TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                              width: 2,
+                            )
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                            )
+                        ),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.redAccent,
+                              width: 2,
+                            )
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Colors.redAccent,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() => getBranch = value.toString());
                       },
-                      label: 'Branch',
-                      hint: 'Write your branch',
+                      value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
+                      validator: (value) {
+                            if(value == null || value.toString().isEmpty){
+                              return 'This source can not be empty.';
+                            }
+                            getBranch = value.toString();
+                      },
+                      items: branches.map((branch) {
+                        return DropdownMenuItem(
+                          child: Text(branch),
+                          value: branch,
+                        );
+                      }).toList(),
+                      // selectedItemBuilder: (context) {
+                      //   return [Text(getBranch)];
+                      // },
                     ),
                     SizedBox(height:24.0),
                     Text(
