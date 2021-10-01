@@ -32,13 +32,14 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
 
   final List<String> branches = ['Diyawannawa','Kadawatha','Kaduwela','Panadura','Yatinuwara'];
   final List<String> tableSizes = ['2','4','8','12'];
+  final List<String> decorationThemes = ['Simple','Family','Birthday','Candles','Romantic'];
 
   bool _isProcessing = false;
 
   final TextEditingController _purposeController = TextEditingController();
   // final TextEditingController _branchController = TextEditingController();
   // final TextEditingController _tableSizeController = TextEditingController();
-  final TextEditingController _decorationThemeController = TextEditingController();
+  // final TextEditingController _decorationThemeController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
 
@@ -170,9 +171,6 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                           value: branch,
                         );
                       }).toList(),
-                      // selectedItemBuilder: (context) {
-                      //   return [Text(getBranch)];
-                      // },
                     ),
                     SizedBox(height:24.0),
                     Text(                                       //table size label
@@ -246,9 +244,6 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                           value: tableSize,
                         );
                       }).toList(),
-                      // selectedItemBuilder: (context) {
-                      //   return [Text(getBranch)];
-                      // },
                     ),
                     SizedBox(height:24.0),
                     Text(                                     //decoration Label
@@ -261,21 +256,67 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    CustomFormField(
-                      initialValue: "",
-                      isLabelEnabled: false,
-                      controller: _decorationThemeController,
-                      focusNode: widget.decorationThemeFocusNode,
-                      keyboardType: TextInputType.text,
-                      inputAction: TextInputAction.next,
-                      validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
-                        getDecorationTheme = value;
+                    DropdownButtonFormField(                                       //decoration theme dropdown
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                      dropdownColor: Colors.black,
+                      decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        filled: true,
+                        labelStyle: TextStyle(color: Colors.yellowAccent),
+                        hintStyle: const TextStyle(
+                            color: Colors.white
+                        ),
+                        errorStyle: const TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                              width: 2,
+                            )
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                            )
+                        ),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.redAccent,
+                              width: 2,
+                            )
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Colors.redAccent,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() => getDecorationTheme = value.toString());
                       },
-                      label: 'Decoration Theme',
-                      hint: 'Write your decoration theme',
+                      value: getDecorationTheme.isEmpty ? 'Simple' : getDecorationTheme,
+                      validator: (value) {
+                        if(value == null || value.toString().isEmpty){
+                          return 'This source can not be empty.';
+                        }
+                        getDecorationTheme = value.toString();
+                      },
+                      items: decorationThemes.map((decorationThemes) {
+                        return DropdownMenuItem(
+                          child: Text('$decorationThemes Theme'),
+                          value: decorationThemes,
+                        );
+                      }).toList(),
                     ),
 
                     SizedBox(height:24.0),
