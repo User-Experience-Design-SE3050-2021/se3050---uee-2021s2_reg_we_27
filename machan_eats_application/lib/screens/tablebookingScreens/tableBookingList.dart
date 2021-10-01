@@ -58,7 +58,7 @@ class TableBookingList extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: Text(
-                    branch,
+                    ('$branch Branch'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

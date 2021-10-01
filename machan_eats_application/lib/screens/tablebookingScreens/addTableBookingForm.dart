@@ -31,12 +31,13 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
   final _addTableBookingFormKey = GlobalKey<FormState>();
 
   final List<String> branches = ['Diyawannawa','Kadawatha','Kaduwela','Panadura','Yatinuwara'];
+  final List<String> tableSizes = ['2','4','8','12'];
 
   bool _isProcessing = false;
 
   final TextEditingController _purposeController = TextEditingController();
   // final TextEditingController _branchController = TextEditingController();
-  final TextEditingController _tableSizeController = TextEditingController();
+  // final TextEditingController _tableSizeController = TextEditingController();
   final TextEditingController _decorationThemeController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
@@ -71,7 +72,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:24.0),
-                    Text(
+                    Text(                                     //purpose Label
                       'Purpose',
                       style: TextStyle(
                         color: Colors.white,
@@ -81,7 +82,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    CustomFormField(
+                    CustomFormField(                                       //purpose input field
                       initialValue: "",
                       isLabelEnabled: false,
                       controller: _purposeController,
@@ -98,7 +99,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       hint: 'Write your purpose',
                     ),
                     SizedBox(height:24.0),
-                    Text(
+                    Text(                                     //branch Label
                       'Branch',
                       style: TextStyle(
                         color: Colors.white,
@@ -108,7 +109,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    DropdownButtonFormField(
+                    DropdownButtonFormField(                                       //branch dropdown
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -174,7 +175,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       // },
                     ),
                     SizedBox(height:24.0),
-                    Text(
+                    Text(                                       //table size label
                       'Table Size',
                       style: TextStyle(
                         color: Colors.white,
@@ -184,24 +185,73 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    CustomFormField(
-                      initialValue: "",
-                      isLabelEnabled: false,
-                      controller: _tableSizeController,
-                      focusNode: widget.tableSizeFocusNode,
-                      keyboardType: TextInputType.text,
-                      inputAction: TextInputAction.next,
-                      validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
-                        getTableSize = value;
+                    DropdownButtonFormField(                                       //table size dropdown
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                      dropdownColor: Colors.black,
+                      decoration: InputDecoration(
+                        fillColor: Colors.black,
+                        filled: true,
+                        labelStyle: TextStyle(color: Colors.yellowAccent),
+                        hintStyle: const TextStyle(
+                            color: Colors.white
+                        ),
+                        errorStyle: const TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                              width: 2,
+                            )
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.amber,
+                            )
+                        ),
+                        errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                            borderSide: const BorderSide(
+                              color: Colors.redAccent,
+                              width: 2,
+                            )
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                          borderSide: const BorderSide(
+                            color: Colors.redAccent,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() => getTableSize = value.toString());
                       },
-                      label: 'Table Size',
-                      hint: 'Write your table size',
+                      value: getTableSize.isEmpty ? '2' : getTableSize,
+                      validator: (value) {
+                        if(value == null || value.toString().isEmpty){
+                          return 'This source can not be empty.';
+                        }
+                        getTableSize = value.toString();
+                      },
+                      items: tableSizes.map((tableSize) {
+                        return DropdownMenuItem(
+                          child: Text('For $tableSize Persons'),
+                          value: tableSize,
+                        );
+                      }).toList(),
+                      // selectedItemBuilder: (context) {
+                      //   return [Text(getBranch)];
+                      // },
                     ),
                     SizedBox(height:24.0),
-                    Text(
+                    Text(                                     //decoration Label
                       'Decoration Theme',
                       style: TextStyle(
                         color: Colors.white,
@@ -229,7 +279,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                     ),
 
                     SizedBox(height:24.0),
-                    Text(
+                    Text(                                     //Booking date and time Label
                       'Booking Date and Time',
                       style: TextStyle(
                         fontSize: 18.0,
@@ -255,7 +305,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  Text(                                     //date Label
                                     'Date',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -298,7 +348,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  Text(                                     //time Label
                                     'Time',
                                     style: TextStyle(
                                       color: Colors.white,
