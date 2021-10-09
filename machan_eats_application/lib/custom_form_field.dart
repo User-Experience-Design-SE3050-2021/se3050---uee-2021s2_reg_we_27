@@ -15,6 +15,7 @@ class CustomFormField extends StatelessWidget {
     this.isCapitalized = false,
     this.maxLines = 1,
     this.isLabelEnabled = true,
+    required bool isEnabled,
   }) :
         _keyboardtype = keyboardType,
         _inputAction = inputAction,
@@ -22,6 +23,7 @@ class CustomFormField extends StatelessWidget {
         _hint = hint,
         _initialValue = initialValue,
         _validator = validator,
+        _isEnabled = isEnabled,
         super(key: key);
 
   final TextInputType _keyboardtype;
@@ -34,12 +36,14 @@ class CustomFormField extends StatelessWidget {
   final int maxLines;
   final bool isLabelEnabled;
   final Function(String) _validator;
+  final bool _isEnabled;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: TextStyle(color: Colors.white),
       initialValue: _initialValue,
+      enabled: _isEnabled,
       maxLines: maxLines,
       keyboardType: _keyboardtype,
       obscureText: isObscure,
@@ -67,6 +71,12 @@ class CustomFormField extends StatelessWidget {
           ),
         ),
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: BorderSide(
             color: Colors.grey,

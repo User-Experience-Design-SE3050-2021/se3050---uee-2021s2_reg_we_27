@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
-import 'package:machan_eats_application/validators/validator.dart';
+// import 'package:machan_eats_application/validators/validator.dart';
 import '../../custom_form_field.dart';
 
 class AddTableBookingForm extends StatefulWidget {
@@ -33,18 +36,16 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
   final List<String> branches = ['Diyawannawa','Kadawatha','Kaduwela','Panadura','Yatinuwara'];
   final List<String> tableSizes = ['2','4','8','12'];
   final List<String> decorationThemes = ['Simple','Family','Birthday','Candles','Romantic'];
+  final dateFormat = DateFormat("yyyy-MM-dd");
+  final timeFormat = DateFormat("hh:mm a");
 
   bool _isProcessing = false;
-
   final TextEditingController _purposeController = TextEditingController();
-  // final TextEditingController _branchController = TextEditingController();
-  // final TextEditingController _tableSizeController = TextEditingController();
-  // final TextEditingController _decorationThemeController = TextEditingController();
-  final TextEditingController _dateController = TextEditingController();
-  final TextEditingController _timeController = TextEditingController();
+  // final TextEditingController _dateController = TextEditingController();
+  // final TextEditingController _timeController = TextEditingController();
 
   String getPurpose = "";
-  String getBranch = "";
+  String getBranch="";
   String getTableSize = "";
   String getDecorationTheme = "";
   String getDate = "";
@@ -83,7 +84,8 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                     ),
                     SizedBox(height:8.0),
-                    CustomFormField(                                       //purpose input field
+                    CustomFormField(                                    //purpose input field
+                      isEnabled: true,
                       initialValue: "",
                       isLabelEnabled: false,
                       controller: _purposeController,
@@ -91,9 +93,9 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        if(value.isEmpty){
+                          return 'Purpose cannot be empty.';
+                        }
                         getPurpose = value;
                       },
                       label: 'Purpose',
@@ -117,11 +119,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a branch',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -158,7 +161,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getBranch = value.toString());
                       },
-                      value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
+                      // value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
                       validator: (value) {
                             if(value == null || value.toString().isEmpty){
                               return 'This source can not be empty.';
@@ -179,7 +182,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                         color: Colors.white,
                         fontSize: 16.0,
                         letterSpacing: 1,
-                        fontWeight: FontWeight.bold,
+                        // fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height:8.0),
@@ -190,11 +193,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a table size',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -231,7 +235,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getTableSize = value.toString());
                       },
-                      value: getTableSize.isEmpty ? '2' : getTableSize,
+                      // value: getTableSize.isEmpty ? '2' : getTableSize,
                       validator: (value) {
                         if(value == null || value.toString().isEmpty){
                           return 'This source can not be empty.';
@@ -263,11 +267,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a decoration theme',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -304,7 +309,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getDecorationTheme = value.toString());
                       },
-                      value: getDecorationTheme.isEmpty ? 'Simple' : getDecorationTheme,
+                      // value: getDecorationTheme.isEmpty ? 'Simple' : getDecorationTheme,
                       validator: (value) {
                         if(value == null || value.toString().isEmpty){
                           return 'This source can not be empty.';
@@ -358,22 +363,75 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                                   SizedBox(height:8.0),
                                   Expanded(
                                     child:
-                                  CustomFormField(
-                                    initialValue: "",
-                                    isLabelEnabled: false,
-                                    controller: _dateController,
-                                    focusNode: widget.dateFocusNode,
-                                    keyboardType: TextInputType.text,
-                                    inputAction: TextInputAction.next,
-                                    validator: (value) {
-                                      Validator.validateField(
-                                          value: value
-                                      );
-                                      getDate = value;
-                                    },
-                                    label: 'Date',
-                                    hint: 'Write your date',
-                                  ),
+                                    DateTimeField(                    //date form
+                                      format: dateFormat,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                      ),
+                                      // dropdownColor: Colors.black,
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.black,
+                                        filled: true,
+                                        labelStyle: TextStyle(color: Colors.yellowAccent),
+                                        suffixIcon: const Icon(Icons.calendar_today),
+                                        isDense: true,
+                                        hintText: "yyyy-MM-dd",
+                                        hintStyle: const TextStyle(
+                                            color: Colors.grey
+                                        ),
+                                        errorStyle: const TextStyle(
+                                          color: Colors.redAccent,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(6.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.amber,
+                                              width: 2,
+                                            )
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(6.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.amber,
+                                            )
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.redAccent,
+                                              width: 2,
+                                            )
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(6.0),
+                                          borderSide: const BorderSide(
+                                            color: Colors.redAccent,
+                                            width: 2,
+                                          ),
+                                        ),
+                                      ),
+                                      onShowPicker: (context, currentValue) {
+                                        if(currentValue != null){
+                                          var format1 = "${currentValue.day}-${currentValue.month}-${currentValue.year}";
+                                          print(format1);
+                                        }
+                                        return showDatePicker(
+                                            context: context,
+                                            firstDate: DateTime(1900),
+                                            initialDate: currentValue ?? DateTime.now(),
+                                            lastDate: DateTime(2100));
+                                      },
+                                      onChanged: (currentValue) {
+                                        if(currentValue != null) {
+                                          setState(() =>
+                                          getDate =
+                                          "${currentValue.day}-${currentValue
+                                              .month}-${currentValue.year}");
+                                        }
+                                      },
+                                    ),
                                   ),
                                 ],
                               ),
@@ -401,22 +459,71 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                                   SizedBox(height:8.0),
                                   Expanded(
                                     child:
-                                  CustomFormField(
-                                    initialValue: "",
-                                    isLabelEnabled: false,
-                                    controller: _timeController,
-                                    focusNode: widget.timeFocusNode,
-                                    keyboardType: TextInputType.text,
-                                    inputAction: TextInputAction.next,
-                                    validator: (value) {
-                                      Validator.validateField(
-                                          value: value
-                                      );
-                                      getTime = value;
-                                    },
-                                    label: 'Time',
-                                    hint: 'Write your time',
-                                  ),
+                                    DateTimeField(
+                                      format: timeFormat,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                      ),
+                                      // dropdownColor: Colors.black,
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.black,
+                                        filled: true,
+                                        labelStyle: TextStyle(color: Colors.yellowAccent),
+                                        suffixIcon: const Icon(Icons.calendar_today),
+                                        isDense: true,
+                                        hintText: "hh:mm",
+                                        hintStyle: const TextStyle(
+                                            color: Colors.grey
+                                        ),
+                                        errorStyle: const TextStyle(
+                                          color: Colors.redAccent,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(6.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.amber,
+                                              width: 2,
+                                            )
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(6.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.amber,
+                                            )
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8.0),
+                                            borderSide: const BorderSide(
+                                              color: Colors.redAccent,
+                                              width: 2,
+                                            )
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(6.0),
+                                          borderSide: const BorderSide(
+                                            color: Colors.redAccent,
+                                            width: 2,
+                                          ),
+                                        ),
+                                      ),
+                                      onShowPicker: (context, currentValue) async {
+                                        final TimeOfDay? time = await showTimePicker(
+                                          context: context,
+                                          initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+                                        );
+                                        return time == null ? null : DateTimeField.convert(time);
+                                      },
+                                      onChanged: (currentValue) {
+                                        if(currentValue != null) {
+                                          setState(() =>
+                                          getTime =
+                                          "${currentValue.hour}:${currentValue.minute} ");
+                                        }
+                                        // setState(() => getTime = currentValue.toString());
+                                      },
+                                    ),
                                   ),
                                 ],
                               ),
@@ -469,6 +576,14 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       setState(() {
                         _isProcessing = false;
                       });
+
+                      Fluttertoast.showToast(       //Toast Message
+                        msg: "Table Booking Details Added Successfully",
+                        fontSize:16,
+                        backgroundColor: Colors.lightGreenAccent,
+                        textColor: Colors.black,
+                      );
+
                       Navigator.of(context).pop();
                     }
 
