@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import 'package:machan_eats_application/pages/login.dart';
 import 'package:machan_eats_application/pages/user_main.dart';
 import 'package:machan_eats_application/providers/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -12,19 +11,26 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
+
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
 
   // This widget is the root of your application.
   @override
+
+
   Widget build(BuildContext context) => ChangeNotifierProvider(
       create: (context) => GoogleSignInProvider(),
           child:
     FutureBuilder(
+
       future: _initialization,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           print('Error occured');
         }
+
+
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator(),);
         }
@@ -34,6 +40,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.amber,
           ),
+
           home: UserMain(),
         );
       },
