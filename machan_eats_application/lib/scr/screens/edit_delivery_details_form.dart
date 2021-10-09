@@ -1,15 +1,11 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/validators/delivery_database.dart';
 import 'package:machan_eats_application/validators/validator.dart';
 
-import '../../custom_form_field.dart';
+import '../../custom_form_field_delivery.dart';
 
 class EditDeliveryDetailsForm extends StatefulWidget {
-
   final String documentId;
   final String currentStreet;
   final String currentCity;
@@ -35,11 +31,11 @@ class EditDeliveryDetailsForm extends StatefulWidget {
     required this.countryFocusNode,
     required this.recieverNameFocusNode,
     required this.mobileNumFocusNode,
-
   });
 
   @override
-  _EditDeliveryDetailsFormState createState() => _EditDeliveryDetailsFormState();
+  _EditDeliveryDetailsFormState createState() =>
+      _EditDeliveryDetailsFormState();
 }
 
 class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
@@ -53,13 +49,11 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
   final TextEditingController _recieverNameController = TextEditingController();
   final TextEditingController _mobileNumController = TextEditingController();
 
-
   String updateStreet = "";
   String updateCity = "";
   String updateCountry = "";
   String updateRecieverName = "";
   String updateMobileNum = "";
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +62,16 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
         key: _addDeliveryDetailsFormKey,
         child: Column(
           children: <Widget>[
-
             Padding(
-                padding: const EdgeInsets.only(left:8.0,right: 8.0,bottom: 24.0,),
+                padding: const EdgeInsets.only(
+                  left: 8.0,
+                  right: 8.0,
+                  bottom: 24.0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height:24.0),
+                    SizedBox(height: 24.0),
                     Text(
                       'Delivery Details',
                       style: TextStyle(
@@ -88,7 +85,7 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       height: 15,
                     ),
                     Text(
-                      'Delivery Address',
+                      'Delivery Address:',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,
@@ -96,32 +93,25 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
-
-
                     Divider(
                       height: 25,
                     ),
                     Text(
-                      'Street',
+                      'Street:',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 1,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
-
-
                     CustomFormField(
-
                       initialValue: widget.currentStreet,
                       isLabelEnabled: false,
                       controller: _streetController,
@@ -129,42 +119,24 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        Validator.validateField(value: value);
                         updateStreet = value;
                       },
-
                       label: 'Street',
                       hint: 'Enter the Street',
-
                     ),
-
-                    // Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: TextField(
-                    //     style: TextStyle(color: Colors.black),
-                    //     decoration: InputDecoration(
-                    //       hintText: "Enter street",
-                    //       border: InputBorder.none,
-                    //       fillColor: Colors.white, filled: true,
-                    //     ),
-                    //
-                    //   ),
-                    // ),
                     Divider(
                       height: 25,
                     ),
                     Text(
-                      'City',
+                      'City:',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 1,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
@@ -176,43 +148,27 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        Validator.validateField(value: value);
                         updateCity = value;
                       },
                       label: 'City',
                       hint: 'Enter the City',
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: TextField(
-                    //     style: TextStyle(color: Colors.black),
-                    //     decoration: InputDecoration(
-                    //       hintText: "Enter city",
-                    //       border: InputBorder.none,
-                    //       fillColor: Colors.white, filled: true,
-                    //     ),
-                    //
-                    //   ),
-                    // ),
                     Divider(
                       height: 25,
                     ),
                     Text(
-                      'Country',
+                      'Country:',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 1,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
-
                     CustomFormField(
                       initialValue: widget.currentCountry,
                       isLabelEnabled: false,
@@ -221,39 +177,24 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
-                        updateCountry= value;
+                        Validator.validateField(value: value);
+                        updateCountry = value;
                       },
                       label: 'Country',
                       hint: 'Enter the Country',
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: TextField(
-                    //     style: TextStyle(color: Colors.black),
-                    //     decoration: InputDecoration(
-                    //       hintText: "Enter country",
-                    //       border: InputBorder.none,
-                    //       fillColor: Colors.white, filled: true,
-                    //     ),
-                    //
-                    //   ),
-                    // ),
                     Divider(
                       height: 25,
                     ),
                     Text(
-                      'Receivers Name',
+                      'Receivers Name:',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 1,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
@@ -265,39 +206,24 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        Validator.validateField(value: value);
                         updateRecieverName = value;
                       },
                       label: 'Receiver Name',
                       hint: 'Enter the Receiver Name',
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.all(8.0),
-                    //   child: TextField(
-                    //     style: TextStyle(color: Colors.black),
-                    //     decoration: InputDecoration(
-                    //       hintText: "Enter receivers name",
-                    //       border: InputBorder.none,
-                    //       fillColor: Colors.white, filled: true,
-                    //     ),
-                    //
-                    //   ),
-                    // ),
                     Divider(
                       height: 25,
                     ),
                     Text(
-                      'Mobile Number',
+                      'Mobile Number:',
                       style: TextStyle(
-                        color: Colors.amber,
+                        color: Colors.white,
                         fontSize: 18.0,
                         letterSpacing: 1,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
-
                     Divider(
                       height: 5,
                     ),
@@ -309,139 +235,89 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        Validator.validateField(value: value);
                         updateMobileNum = value;
                       },
                       label: 'Mobile Num',
                       hint: 'Enter the mobile number',
                     ),
                   ],
-                )
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: TextField(
-            //     style: TextStyle(color: Colors.black),
-            //     decoration: InputDecoration(
-            //       hintText: "Enter mobile number",
-            //
-            //       border: InputBorder.none,
-            //       fillColor: Colors.white, filled: true,
-            //     ),
-            //
-            //   ),
-            // ),
-
+                )),
             Divider(
               height: 60,
             ),
             _isProcessing
                 ? Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
-              ),
-            ) :
-            Container(
-              width: double.maxFinite,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.amber),
-                  shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      )
-                  ),
-                ),
-                // Padding(
-                //   padding: EdgeInsets.only(left: 40.0, right: 40.0),
-                //   child: Container(
-                //     width: double.maxFinite,
-                //     child: ElevatedButton(
-                //       style: ButtonStyle(
-                //         backgroundColor: MaterialStateProperty.all(Colors.amber),
-                //         shape: MaterialStateProperty.all(
-                //             RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(10),
-                //             )
-                //         ),
-                //       ),
-                onPressed: () async{
-
-                  widget.streetFocusNode.unfocus();
-                  widget.cityFocusNode.unfocus();
-                  widget.countryFocusNode.unfocus();
-                  widget.recieverNameFocusNode.unfocus();
-                  widget.mobileNumFocusNode.unfocus();
-
-
-                  if(_addDeliveryDetailsFormKey.currentState!.validate()){
-                    setState(() {
-                      _isProcessing = true;
-                      // SnackBar(content: Text("Delivery Details Added Successfully"));
-
-                      SnackBar(
-                        content: const Text('Delivery Details Added'),
-
-                      );
-
-                    });
-
-
-                    await Delivery_Database.updateDeliveryDetails(docId: widget.documentId, street: updateStreet, city: updateCity, country: updateCountry, recieverName: updateRecieverName, mobileNum: updateMobileNum);
-
-
-                    setState(() {
-                      _isProcessing = false;
-                    });
-
-                    final snackBar = SnackBar(
-                      content: const Text('Delivery Details Updated!'),
-                      action: SnackBarAction(
-                        label: 'Undo',
-                        onPressed: () {
-
-                          // Some code to undo the change.
-                        },
+                    padding: const EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator(
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
+                    ),
+                  )
+                : Container(
+                    width: double.maxFinite,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.amber),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        )),
                       ),
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    Navigator.of(context).pop();
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (context) => ShowDetails(),
-                    //   ),
-                    //
-                    //   // DeliveryList(),
-                    // );
-                    // Navigator.of(context).push(
-                    //
-                  }
+                      onPressed: () async {
+                        widget.streetFocusNode.unfocus();
+                        widget.cityFocusNode.unfocus();
+                        widget.countryFocusNode.unfocus();
+                        widget.recieverNameFocusNode.unfocus();
+                        widget.mobileNumFocusNode.unfocus();
 
-                },
+                        if (_addDeliveryDetailsFormKey.currentState!
+                            .validate()) {
+                          setState(() {
+                            _isProcessing = true;
 
+                            SnackBar(
+                              content: const Text('Delivery Details Added'),
+                            );
+                          });
 
+                          await Delivery_Database.updateDeliveryDetails(
+                              docId: widget.documentId,
+                              street: updateStreet,
+                              city: updateCity,
+                              country: updateCountry,
+                              recieverName: updateRecieverName,
+                              mobileNum: updateMobileNum);
 
+                          setState(() {
+                            _isProcessing = false;
+                          });
 
-
-                child: Padding(
-                    padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
-                    child: Text(
-                        'Update Data',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          letterSpacing: 2,
-                        )
-                    )
-                ),
-              ),
-            ),
+                          final snackBar = SnackBar(
+                            content: const Text('Delivery Details Updated!'),
+                            action: SnackBarAction(
+                              label: 'Undo',
+                              onPressed: () {
+                                // Some code to undo the change.
+                              },
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          Navigator.of(context).pop();
+                        }
+                      },
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 16.0, bottom: 16.0),
+                          child: Text('Update Data',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                                letterSpacing: 2,
+                              ))),
+                    ),
+                  ),
           ],
-
         ),
       ),
     );

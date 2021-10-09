@@ -4,14 +4,37 @@ import 'package:machan_eats_application/scr/models/products.dart';
 import 'package:machan_eats_application/scr/screens/commons.dart';
 import 'package:machan_eats_application/scr/screens/details.dart';
 
-
 import 'custom_text.dart';
 
 List<Product> productsList = [
-  Product(name: "Burger", price: 300.00, rating: 4.2, description: "Chicken Burger loaded cheese with greavy", wishList: true, image: "burger.jpg"),
-  Product(name: "Bites", price: 320.00, rating: 4.2, description: "Crispy Chiken with hot sause and cheese dip", wishList: true, image: "chiken.jpg"),
-  Product(name: "Sea Food", price: 450.00, rating: 4.0, description: "Tasty sea food dishes", wishList: true, image: "sea_food.jpg"),
-  Product(name: "Beer", price: 300.00, rating: 4.0, description: "Range of Beers", wishList: true, image: "beer.jpg"),
+  Product(
+      name: "Burger",
+      price: 300.00,
+      rating: 4.2,
+      description: "Chicken Burger loaded cheese with greavy",
+      wishList: true,
+      image: "burger.jpg"),
+  Product(
+      name: "Bites",
+      price: 320.00,
+      rating: 4.2,
+      description: "Crispy Chiken with hot sause and cheese dip",
+      wishList: true,
+      image: "chiken.jpg"),
+  Product(
+      name: "Sea Food",
+      price: 450.00,
+      rating: 4.0,
+      description: "Tasty sea food dishes",
+      wishList: true,
+      image: "sea_food.jpg"),
+  Product(
+      name: "Beer",
+      price: 300.00,
+      rating: 4.0,
+      description: "Range of Beers",
+      wishList: true,
+      image: "beer.jpg"),
 ];
 
 class Featured extends StatelessWidget {
@@ -24,10 +47,14 @@ class Featured extends StatelessWidget {
           itemCount: productsList.length,
           itemBuilder: (_, index) {
             return Padding(
-              padding: EdgeInsets.fromLTRB(12,14,16,12),
+              padding: EdgeInsets.fromLTRB(12, 14, 16, 12),
               child: GestureDetector(
-                onTap: (){
-                  changeScreen(_, Details(product: productsList[index],));
+                onTap: () {
+                  changeScreen(
+                      _,
+                      Details(
+                        product: productsList[index],
+                      ));
                 },
                 child: Container(
                   height: 140,
@@ -36,9 +63,7 @@ class Featured extends StatelessWidget {
                     color: white,
                     boxShadow: [
                       BoxShadow(
-                          color: black,
-                          offset: Offset(0, 0),
-                          blurRadius: 0)
+                          color: black, offset: Offset(0, 0), blurRadius: 0)
                     ],
                   ),
                   child: Column(
@@ -74,15 +99,17 @@ class Featured extends StatelessWidget {
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(4),
-                                child: productsList[index].wishList ? Icon(
-                                  Icons.favorite,
-                                  color: red,
-                                  size: 18,
-                                ) : Icon(
-                                Icons.favorite_border,
-                                color: red,
-                                size: 18,
-                              ),
+                                child: productsList[index].wishList
+                                    ? Icon(
+                                        Icons.favorite,
+                                        color: red,
+                                        size: 18,
+                                      )
+                                    : Icon(
+                                        Icons.favorite_border,
+                                        color: red,
+                                        size: 18,
+                                      ),
                               ),
                             ),
                           )
@@ -133,7 +160,10 @@ class Featured extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 8.0),
-                            child: CustomText(text: "\R\S${productsList[index].price}", weight: FontWeight.bold,),
+                            child: CustomText(
+                              text: "\R\S${productsList[index].price}",
+                              weight: FontWeight.bold,
+                            ),
                           )
                         ],
                       )
@@ -146,4 +176,3 @@ class Featured extends StatelessWidget {
     );
   }
 }
-

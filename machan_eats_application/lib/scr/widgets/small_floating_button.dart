@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/scr/screens/commons.dart';
 
-
-
 class SmallButton extends StatelessWidget {
   final IconData icon;
 

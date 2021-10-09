@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:machan_eats_application/scr/screens/commons.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -39,7 +38,7 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: TextStyle(color: Colors.grey),
+      style: TextStyle(color: Colors.black),
       initialValue: _initialValue,
       maxLines: maxLines,
       keyboardType: _keyboardtype,
@@ -53,6 +52,7 @@ class CustomFormField extends StatelessWidget {
         labelText: isLabelEnabled ? _label : null,
         labelStyle: TextStyle(color: Colors.yellowAccent),
         hintText: _hint,
+        fillColor: Colors.white, filled: true,
         hintStyle: TextStyle(
           color: Colors.grey,
         ),

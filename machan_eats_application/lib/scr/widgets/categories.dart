@@ -9,7 +9,6 @@ List<Category> categoriesList = [
   Category(name: "Bites", image: "chiken.jpg"),
   Category(name: "Main", image: "kothth.jpg"),
   Category(name: "Desserts", image: "mock.jpg"),
-
 ];
 
 class Categories extends StatelessWidget {
@@ -20,21 +19,29 @@ class Categories extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categoriesList.length,
-        itemBuilder: (_, index){
-          return  Padding(
+        itemBuilder: (_, index) {
+          return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: <Widget>[
-
                 Container(
-
                   child: Padding(
                     padding: const EdgeInsets.all(0),
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.asset("images/${categoriesList[index].image}", width: 80, height:80,)),),
+                        child: Image.asset(
+                          "images/${categoriesList[index].image}",
+                          width: 80,
+                          height: 80,
+                        )),
+                  ),
                 ),
-                CustomText(text: "${categoriesList[index].name}", size: 14, color: white, weight: FontWeight.bold,)
+                CustomText(
+                  text: "${categoriesList[index].name}",
+                  size: 14,
+                  color: white,
+                  weight: FontWeight.bold,
+                )
               ],
             ),
           );

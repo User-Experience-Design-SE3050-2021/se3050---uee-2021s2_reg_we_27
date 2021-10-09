@@ -5,24 +5,22 @@ import 'package:machan_eats_application/validators/delivery_database.dart';
 import 'commons.dart';
 import 'edit_delivery_screen.dart';
 
-
 class DeliveryList extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Delivery_Database.readDeliveryDetails(),
-      builder: (context,snapshot){
-        if(snapshot.hasError){
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
           return Text('Something went wrong');
-        }
-        else if(snapshot.hasData || snapshot.data != null){
+        } else if (snapshot.hasData || snapshot.data != null) {
           return ListView.separated(
             padding: EdgeInsets.only(top: 16.0),
             separatorBuilder: (context, index) => SizedBox(height: 16.0),
             itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index){
-              var deliveryInfo = snapshot.data!.docs[index].data() as Map<String, dynamic>;
+            itemBuilder: (context, index) {
+              var deliveryInfo =
+                  snapshot.data!.docs[index].data() as Map<String, dynamic>;
               String docID = snapshot.data!.docs[index].id;
               String street = deliveryInfo['street'];
               String city = deliveryInfo['city'];
@@ -62,21 +60,17 @@ class DeliveryList extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-
                 ),
               );
             },
           );
         }
 
-
-
         return Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.orangeAccent),
           ),
         );
-
       },
     );
   }

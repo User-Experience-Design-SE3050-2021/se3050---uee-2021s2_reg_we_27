@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/validators/delivery_database.dart';
-
+import 'app_bar.dart';
+import 'bottom_nav.dart';
 import 'commons.dart';
 import 'edit_delivery_details_form.dart';
-
 
 class EditDeliveryScreen extends StatefulWidget {
   final String documentId;
@@ -27,7 +27,6 @@ class EditDeliveryScreen extends StatefulWidget {
 }
 
 class _EditDeliveryScreenState extends State<EditDeliveryScreen> {
-
   final FocusNode _streetFocusNode = FocusNode();
   final FocusNode _cityFocusNode = FocusNode();
   final FocusNode _countryFocusNode = FocusNode();
@@ -50,34 +49,44 @@ class _EditDeliveryScreenState extends State<EditDeliveryScreen> {
           backgroundColor: black,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: amber,
-
+            backgroundColor: Colors.amber,
+            title: AppBarTitle(
+              sectionName: 'App',
+            ),
             actions: [
               _isDeleting
                   ? Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, right: 16.0,),
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Colors.redAccent,
-                  ),
-                  strokeWidth: 3,
-                ),
-              ) : IconButton(
-                  onPressed: () async {
-                    setState(() {
-                      _isDeleting = true;
-                    });
+                      padding: const EdgeInsets.only(
+                        top: 10.0,
+                        bottom: 10.0,
+                        right: 16.0,
+                      ),
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Colors.redAccent,
+                        ),
+                        strokeWidth: 3,
+                      ),
+                    )
+                  : IconButton(
+                      onPressed: () async {
+                        setState(() {
+                          _isDeleting = true;
+                        });
 
-                    await Delivery_Database.deleteDeliveryDetails(
-                      docId: widget.documentId,
-                    );
-                    setState(() {
-                      _isDeleting = false;
-                    });
-                    Navigator.of(context).pop();
-                  },
-                  icon: Icon(Icons.delete_forever, color: Colors.black, size: 32,)
-              ),
+                        await Delivery_Database.deleteDeliveryDetails(
+                          docId: widget.documentId,
+                        );
+                        setState(() {
+                          _isDeleting = false;
+                        });
+                        Navigator.of(context).pop();
+                      },
+                      icon: Icon(
+                        Icons.delete_forever,
+                        color: Colors.black,
+                        size: 32,
+                      )),
             ],
           ),
           body: SafeArea(
@@ -99,11 +108,12 @@ class _EditDeliveryScreenState extends State<EditDeliveryScreen> {
                 currentRecieverName: widget.currentRecieverName,
                 currentCountry: widget.currentCountry,
                 currentMobileNum: widget.currentMobileNum,
-
               ),
             ),
-          )
-      ),
+          ),
+          bottomNavigationBar: BottomNavBar(
+            selectedIndex: 1,
+          )),
     );
   }
 }
