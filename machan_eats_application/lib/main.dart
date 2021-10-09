@@ -4,11 +4,11 @@ import 'package:machan_eats_application/pages/user_main.dart';
 import 'package:machan_eats_application/providers/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
 
 
@@ -34,12 +34,14 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator(),);
         }
+
         return MaterialApp(
           title: 'Machan Eats',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             primarySwatch: Colors.amber,
           ),
+
 
           home: UserMain(),
         );
