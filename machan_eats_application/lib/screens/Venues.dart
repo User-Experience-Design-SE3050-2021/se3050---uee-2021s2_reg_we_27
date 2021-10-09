@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/addNewEventScreen.dart';
-import 'package:machan_eats_application/screens/eventDetails.dart';
 
 class Venues extends StatefulWidget {
   const Venues({Key? key}) : super(key: key);
