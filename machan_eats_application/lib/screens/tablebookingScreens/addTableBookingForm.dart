@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
-import 'package:machan_eats_application/validators/validator.dart';
+// import 'package:machan_eats_application/validators/validator.dart';
 import '../../custom_form_field.dart';
 
 class AddTableBookingForm extends StatefulWidget {
@@ -45,7 +45,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
   // final TextEditingController _timeController = TextEditingController();
 
   String getPurpose = "";
-  String getBranch = "";
+  String getBranch="";
   String getTableSize = "";
   String getDecorationTheme = "";
   String getDate = "";
@@ -93,9 +93,9 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        if(value.isEmpty){
+                          return 'Purpose cannot be empty.';
+                        }
                         getPurpose = value;
                       },
                       label: 'Purpose',
@@ -119,11 +119,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a branch',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -160,7 +161,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getBranch = value.toString());
                       },
-                      value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
+                      // value: getBranch.isEmpty ? 'Diyawannawa' : getBranch,
                       validator: (value) {
                             if(value == null || value.toString().isEmpty){
                               return 'This source can not be empty.';
@@ -192,11 +193,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a table size',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -233,7 +235,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getTableSize = value.toString());
                       },
-                      value: getTableSize.isEmpty ? '2' : getTableSize,
+                      // value: getTableSize.isEmpty ? '2' : getTableSize,
                       validator: (value) {
                         if(value == null || value.toString().isEmpty){
                           return 'This source can not be empty.';
@@ -265,11 +267,12 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       ),
                       dropdownColor: Colors.black,
                       decoration: InputDecoration(
+                        hintText: 'Select a decoration theme',
                         fillColor: Colors.black,
                         filled: true,
                         labelStyle: TextStyle(color: Colors.yellowAccent),
                         hintStyle: const TextStyle(
-                            color: Colors.white
+                            color: Colors.grey
                         ),
                         errorStyle: const TextStyle(
                           color: Colors.redAccent,
@@ -306,7 +309,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                       onChanged: (value) {
                         setState(() => getDecorationTheme = value.toString());
                       },
-                      value: getDecorationTheme.isEmpty ? 'Simple' : getDecorationTheme,
+                      // value: getDecorationTheme.isEmpty ? 'Simple' : getDecorationTheme,
                       validator: (value) {
                         if(value == null || value.toString().isEmpty){
                           return 'This source can not be empty.';
@@ -469,7 +472,7 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                                         labelStyle: TextStyle(color: Colors.yellowAccent),
                                         suffixIcon: const Icon(Icons.calendar_today),
                                         isDense: true,
-                                        hintText: "hh:mm a",
+                                        hintText: "hh:mm",
                                         hintStyle: const TextStyle(
                                             color: Colors.grey
                                         ),
