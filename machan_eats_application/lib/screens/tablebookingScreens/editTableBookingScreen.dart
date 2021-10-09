@@ -78,7 +78,7 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
                   msg: "Table Booking Details Deleted Successfully",
                   fontSize:16,
                   backgroundColor: Colors.lightGreenAccent,
-                  textColor: Colors.white,
+                  textColor: Colors.black,
                 );
 
                 Navigator.pop(context, 'OK');
