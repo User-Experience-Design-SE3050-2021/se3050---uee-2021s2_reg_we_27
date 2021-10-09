@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/Venues.dart';
+import 'bottom_nav.dart';
 
 class RestaurantsView extends StatefulWidget {
   const RestaurantsView({Key? key}) : super(key: key);
@@ -374,7 +375,9 @@ class _RestaurantsViewState extends State<RestaurantsView> {
           ],
         ),
       ),
-    );
+        bottomNavigationBar: BottomNavBar(
+          selectedIndex: 1,
+        ));
   }
 }
 

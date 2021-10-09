@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/CardDetailsScreen.dart';
-import 'package:machan_eats_application/screens/eventDetails.dart';
+import 'bottom_nav.dart';
 
 class CardView extends StatefulWidget {
   const CardView({Key? key}) : super(key: key);
@@ -135,7 +135,9 @@ class _CardViewState extends State<CardView> {
           ],
         ),
       ),
-    );
+        bottomNavigationBar: BottomNavBar(
+          selectedIndex: 1,
+        ));
   }
 }
 

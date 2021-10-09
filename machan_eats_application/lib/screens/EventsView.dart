@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/Restaurants.dart';
 import 'package:machan_eats_application/screens/eventList.dart';
 
+import 'bottom_nav.dart';
+
 
 class EventsView extends StatefulWidget {
   const EventsView({Key? key}) : super(key: key);
@@ -502,7 +504,11 @@ class _EventsViewState extends State<EventsView> {
           ],
         ),
       ),
-    );
+
+
+     bottomNavigationBar: BottomNavBar(
+      selectedIndex: 1,
+    ));
   }
 }
 
