@@ -77,7 +77,7 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
                 Fluttertoast.showToast(       //Toast Message
                   msg: "Table Booking Details Deleted Successfully",
                   fontSize:16,
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: Colors.lightGreenAccent,
                   textColor: Colors.white,
                 );
 
