@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'app_bar.dart';
-import 'bottom_nav.dart';
 import 'commons.dart';
 import 'delivery.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/validators/delivery_database.dart';
 import 'app_bar.dart';
-import 'bottom_nav.dart';
 import 'commons.dart';
 import 'edit_delivery_details_form.dart';
 

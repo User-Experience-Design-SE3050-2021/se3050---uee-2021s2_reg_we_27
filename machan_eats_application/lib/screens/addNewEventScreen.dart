@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/screens/addNewEventForm.dart';
 
-import 'bottom_nav.dart';
 
 class AddEventScreen extends StatelessWidget {
   final FocusNode _titleFocusNode = FocusNode();

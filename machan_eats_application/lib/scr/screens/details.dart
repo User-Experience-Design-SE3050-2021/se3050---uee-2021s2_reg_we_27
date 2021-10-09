@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/scr/models/products.dart';
 import 'package:machan_eats_application/scr/widgets/custom_text.dart';
 import 'app_bar.dart';
 import 'bag.dart';
-import 'bottom_nav.dart';
 import 'commons.dart';
 
 class Details extends StatefulWidget {

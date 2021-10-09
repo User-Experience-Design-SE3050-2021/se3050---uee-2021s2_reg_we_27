@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/scr/screens/view_delivery.dart';
 import 'app_bar.dart';
-import 'bottom_nav.dart';
 import 'commons.dart';
 import 'order.dart';
 

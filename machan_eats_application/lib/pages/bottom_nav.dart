@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/pages/home.dart';
 import 'package:machan_eats_application/pages/user_profile.dart';
+import 'package:machan_eats_application/scr/screens/bag.dart';
 
 
 class BottomNavBar extends StatefulWidget {
@@ -22,7 +23,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _children = [
     Home(),
     Home(),
-    Home(),
+    ShoppingBag(),
     Profile(),
   ];
   void _onItemTapped() {

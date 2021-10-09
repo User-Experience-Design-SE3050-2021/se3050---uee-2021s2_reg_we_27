@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/screens/CardView.dart';
 import 'package:machan_eats_application/validators/database.dart';
 
-import 'bottom_nav.dart';
 
 class EventList extends StatelessWidget {
 

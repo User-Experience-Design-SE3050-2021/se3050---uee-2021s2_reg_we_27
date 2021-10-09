@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/pages/bottom_nav.dart';
-import 'package:machan_eats_application/pages/food.dart';
+import 'package:machan_eats_application/scr/screens/restaurant.dart';
+import 'package:machan_eats_application/screens/EventsView.dart';
+import 'package:machan_eats_application/screens/tablebookingScreens/tableBookingdetails.dart';
 
 
 class Home extends StatefulWidget {
@@ -68,7 +70,7 @@ class _HomeState extends State<Home> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Food(),
+                        builder: (context) => Restaurants(),
                       ),
                     );
                   },
@@ -104,6 +106,16 @@ class _HomeState extends State<Home> {
                     ),
                   ),
               ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TableBookingScreen(),
+                  ),
+                );
+              },
+              child:
               Center(
                 child: Container(
                   margin: const EdgeInsets.all(10.0),
@@ -137,6 +149,17 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+            ),
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => EventsView(),
+              ),
+            );
+          },
+          child:
               Center(
                 child: Container(
                   margin: const EdgeInsets.all(10.0),
@@ -170,6 +193,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+        ),
             ],
           ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/screens/Venues.dart';
-import 'bottom_nav.dart';
 
 class RestaurantsView extends StatefulWidget {
   const RestaurantsView({Key? key}) : super(key: key);

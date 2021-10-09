@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/scr/widgets/custom_text.dart';
 import 'app_bar.dart';
-import 'bottom_nav.dart';
 import 'commons.dart';
 import 'foodorder_main.dart';
 
