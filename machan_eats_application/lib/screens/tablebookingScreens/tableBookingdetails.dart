@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import 'package:machan_eats_application/screens/app_bar.dart';
 import 'package:machan_eats_application/screens/tablebookingScreens/addTableBookingScreen.dart';
 import 'package:machan_eats_application/screens/tablebookingScreens/tableBookingList.dart';
@@ -44,6 +45,8 @@ class _TableBookingScreenState extends State<TableBookingScreen> {
           child: TableBookingList(),
         ),
       ),
+      bottomNavigationBar:
+      BottomNavBar(selectedIndex:1,),
     );
   }
 }
