@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/CardDetailsForm.dart';
+import 'bottom_nav.dart';
 
 class CardDetailsScreen extends StatelessWidget {
   final FocusNode _nameOntheCardFocusNode = FocusNode();
@@ -49,7 +50,9 @@ class CardDetailsScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
+          bottomNavigationBar: BottomNavBar(
+            selectedIndex: 1,
+          )),
     );
   }
 }
