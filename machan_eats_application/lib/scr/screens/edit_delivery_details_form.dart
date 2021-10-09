@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/validators/delivery_database.dart';
-import 'package:machan_eats_application/validators/validator.dart';
 
 import '../../custom_form_field_delivery.dart';
 
@@ -118,9 +117,14 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       focusNode: widget.streetFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter street';
+                        }
+                        // return null;
                         updateStreet = value;
+
                       },
                       label: 'Street',
                       hint: 'Enter the Street',
@@ -147,9 +151,14 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       focusNode: widget.cityFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter city';
+                        }
+                        // return null;
                         updateCity = value;
+
                       },
                       label: 'City',
                       hint: 'Enter the City',
@@ -176,9 +185,14 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       focusNode: widget.countryFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter country ';
+                        }
+                        // return null;
                         updateCountry = value;
+
                       },
                       label: 'Country',
                       hint: 'Enter the Country',
@@ -205,8 +219,15 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       focusNode: widget.recieverNameFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter recievers name ';
+                        }
+                        else if (value.length <= 3) {
+                          return 'Enter Receiver name more than 3 characters';
+                        }
+                        // return null;
                         updateRecieverName = value;
                       },
                       label: 'Receiver Name',
@@ -234,8 +255,14 @@ class _EditDeliveryDetailsFormState extends State<EditDeliveryDetailsForm> {
                       focusNode: widget.mobileNumFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter a mobile number ';
+                        } else if (value.length <= 7) {
+                          return 'Enter a valid mobile number';
+                        }
+                        // return null;
                         updateMobileNum = value;
                       },
                       label: 'Mobile Num',
