@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:machan_eats_application/custom_form_field.dart';
@@ -92,10 +93,11 @@ class _AddEventFormState extends State<AddEventForm> {
                      focusNode:widget.titleFocusNode,
                      keyboardType:TextInputType.text,
                      inputAction:TextInputAction.next,
-                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return 'Please enter title';
+                      }
+                      // return null;
                       getTitle = value;
                     },
                      label: 'Title',
@@ -121,9 +123,10 @@ class _AddEventFormState extends State<AddEventForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter Description';
+                      }
+                      // return null;
                       getDescription = value;
                     },
                     label: 'Description',
@@ -146,11 +149,19 @@ class _AddEventFormState extends State<AddEventForm> {
                     focusNode:widget.noOfInvitesFocusNode,
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
+                    // validator: (value) {
+                    //   Validator.validateField(
+                    //       value: value
+                    //   );
+                    //   getNoOfInvitees = value;
+                    // },
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter no of invitees';
+                      }
+                      // return null;
                       getNoOfInvitees = value;
+
                     },
                     label: 'No Of Invitees',
                     hint: 'Enter No Of Invitees',
@@ -494,6 +505,14 @@ class _AddEventFormState extends State<AddEventForm> {
                           setState(() {
                             _isProcessing = false;
                           });
+
+                        Fluttertoast.showToast(       //Toast Message
+                        msg: "Event Details Added Successfully",
+                        fontSize:16,
+                        backgroundColor: Colors.white,
+                        textColor: Colors.black,
+                        );
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -503,7 +522,7 @@ class _AddEventFormState extends State<AddEventForm> {
                         }
                       },
                       child: Padding(
-                        padding: EdgeInsets.only(top: 16.0,bottom: 16.0),
+                        padding: EdgeInsets.only(top: 16.0,bottom: 12.0),
                         child: Text(
                           'Add New Event',
                           style: TextStyle(
@@ -516,6 +535,7 @@ class _AddEventFormState extends State<AddEventForm> {
                       ),
                  ),
             ),
+            SizedBox(height: 15.0),
           ],
         ),
             ),

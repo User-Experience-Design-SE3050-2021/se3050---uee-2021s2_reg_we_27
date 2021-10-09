@@ -54,7 +54,8 @@ class CustomFormField extends StatelessWidget {
         ),
         errorStyle: TextStyle(
           color: Colors.red,
-          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),

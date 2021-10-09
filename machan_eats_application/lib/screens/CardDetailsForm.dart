@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:machan_eats_application/custom_form_field.dart';
 import 'package:machan_eats_application/screens/EventsView.dart';
 import 'package:machan_eats_application/validators/database.dart';
-import 'package:machan_eats_application/validators/validator.dart';
 
 
 
@@ -87,9 +87,10 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter name on the card';
+                      }
+                      // return null;
                       getNameOnCard = value;
                     },
                     label: 'Name On the Card',
@@ -114,9 +115,10 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter card number';
+                      }
+                      // return null;
                       getCardNumber = value;
                     },
                     label: 'Card Number',
@@ -140,9 +142,10 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter Expiration date';
+                      }
+                      // return null;
                       getExpirationDate = value;
                     },
                     label: 'Expiration Date/ Year',
@@ -166,9 +169,10 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter cvv';
+                      }
+                      // return null;
                       getCvv = value;
                     },
                     label: 'Cvv',
@@ -193,9 +197,10 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     keyboardType:TextInputType.text,
                     inputAction:TextInputAction.next,
                     validator: (value) {
-                      Validator.validateField(
-                          value: value
-                      );
+                      if (value.isEmpty) {
+                        return 'Please enter Amount';
+                      }
+                      // return null;
                       getAmount = value;
                     },
                     label: 'Total Amount',
@@ -236,6 +241,13 @@ class _CardDetailsFormState extends State<CardDetailsForm> {
                     setState(() {
                       _isProcessing = false;
                     });
+
+                    Fluttertoast.showToast(       //Toast Message
+                      msg: "Card Details Added Successfully",
+                      fontSize:16,
+                      backgroundColor: Colors.white,
+                      textColor: Colors.black,
+                    );
                     Navigator.push(
                       context,
                       MaterialPageRoute(
