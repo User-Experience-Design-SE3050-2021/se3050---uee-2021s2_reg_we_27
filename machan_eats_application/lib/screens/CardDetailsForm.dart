@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:machan_eats_application/custom_form_field.dart';
+import 'package:machan_eats_application/custom_form_field_event.dart';
 import 'package:machan_eats_application/screens/EventsView.dart';
 import 'package:machan_eats_application/validators/database.dart';
 
