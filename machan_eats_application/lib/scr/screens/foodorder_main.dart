@@ -1,10 +1,10 @@
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/scr/widgets/categories.dart';
 import 'package:machan_eats_application/scr/widgets/custom_text.dart';
 import 'package:machan_eats_application/scr/widgets/featured_products.dart';
 import 'package:machan_eats_application/scr/widgets/popular_food.dart';
-import 'package:machan_eats_application/scr/widgets/small_floating_button.dart';
+
 import 'commons.dart';
 
 class FoodOrderMain extends StatefulWidget {
