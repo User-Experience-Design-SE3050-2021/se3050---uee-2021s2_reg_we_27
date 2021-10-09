@@ -9,32 +9,41 @@ class CustomFormField extends StatelessWidget {
     required TextInputAction inputAction,
     required String label,
     required String hint,
+    required String initialValue,
     required Function(String value) validator,
     this.isObscure = false,
     this.isCapitalized = false,
     this.maxLines = 1,
     this.isLabelEnabled = true,
+    required bool isEnabled,
   }) :
         _keyboardtype = keyboardType,
         _inputAction = inputAction,
         _label = label,
         _hint = hint,
+        _initialValue = initialValue,
         _validator = validator,
+        _isEnabled = isEnabled,
         super(key: key);
 
   final TextInputType _keyboardtype;
   final TextInputAction _inputAction;
   final String _label;
   final String _hint;
+  final String _initialValue;
   final bool isObscure;
   final bool isCapitalized;
   final int maxLines;
   final bool isLabelEnabled;
   final Function(String) _validator;
+  final bool _isEnabled;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: Colors.white),
+      initialValue: _initialValue,
+      enabled: _isEnabled,
       maxLines: maxLines,
       keyboardType: _keyboardtype,
       obscureText: isObscure,
@@ -44,8 +53,6 @@ class CustomFormField extends StatelessWidget {
       cursorColor: Colors.yellow,
       validator: (value) => _validator(value!),
       decoration: InputDecoration(
-        fillColor: Colors.white,
-        filled: true,
         labelText: isLabelEnabled ? _label : null,
         labelStyle: TextStyle(color: Colors.yellowAccent),
         hintText: _hint,
@@ -54,8 +61,7 @@ class CustomFormField extends StatelessWidget {
         ),
         errorStyle: TextStyle(
           color: Colors.red,
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
+          fontWeight: FontWeight.bold,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
@@ -65,6 +71,12 @@ class CustomFormField extends StatelessWidget {
           ),
         ),
         enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          borderSide: BorderSide(
+            color: Colors.grey,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
           borderSide: BorderSide(
             color: Colors.grey,
