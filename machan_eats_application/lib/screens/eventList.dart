@@ -26,6 +26,7 @@ class EventList extends StatelessWidget {
         ),
       ),
 
+
       body:StreamBuilder<QuerySnapshot>(
       stream: Database.readEvents(),
       builder: (context,snapshot){
@@ -48,18 +49,18 @@ class EventList extends StatelessWidget {
               // String closingTime = noteInfo['closingTime'];
 
               return Ink(
-
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
+
 
                 child: ListView(
                   shrinkWrap: true,
                   children:[
 
                 Padding(
-                padding: EdgeInsets.only(left: 20.0, top: 5.0),
+                padding: EdgeInsets.only(left: 20.0, top: 5.0,right: 20.0),
                 child:Text(
                     title,
                     maxLines: 1,
@@ -77,10 +78,10 @@ class EventList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
               Padding(
-              padding: EdgeInsets.only(left: 20.0, top: 5.0),
+              padding: EdgeInsets.only(left: 20.0, top: 5.0,right: 20.0),
               child:Text(
                       description,
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 20.0,

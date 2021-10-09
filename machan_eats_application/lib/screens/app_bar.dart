@@ -20,7 +20,7 @@ class AppBarTitle extends StatelessWidget {
           'Machan Eats',
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 18,
+                fontSize: 20,
               ),
         ),
         Text(

@@ -138,7 +138,16 @@ class _VenuesState extends State<Venues> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddEventScreen(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -148,7 +157,7 @@ class _VenuesState extends State<Venues> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -217,7 +226,16 @@ class _VenuesState extends State<Venues> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddEventScreen(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -227,7 +245,7 @@ class _VenuesState extends State<Venues> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -296,7 +314,16 @@ class _VenuesState extends State<Venues> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddEventScreen(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -306,7 +333,7 @@ class _VenuesState extends State<Venues> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),

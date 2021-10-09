@@ -140,7 +140,16 @@ class _RestaurantsViewState extends State<RestaurantsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Venues(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -150,7 +159,7 @@ class _RestaurantsViewState extends State<RestaurantsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -219,7 +228,16 @@ class _RestaurantsViewState extends State<RestaurantsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Venues(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -229,7 +247,7 @@ class _RestaurantsViewState extends State<RestaurantsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -298,7 +316,16 @@ class _RestaurantsViewState extends State<RestaurantsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Venues(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -308,7 +335,7 @@ class _RestaurantsViewState extends State<RestaurantsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 import '../app_bar.dart';
 import 'addTableBookingForm.dart';
 
@@ -43,6 +44,8 @@ class AddTableBookingScreen extends StatelessWidget {
             ),
           ),
         ),
+        bottomNavigationBar:
+          BottomNavBar(selectedIndex:1,),
       ),
     );
   }

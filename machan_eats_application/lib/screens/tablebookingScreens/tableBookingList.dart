@@ -36,6 +36,10 @@ class TableBookingList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: ListTile(
+                  trailing:Icon(
+                      Icons.edit,
+                      color: Colors.black,
+                  ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),

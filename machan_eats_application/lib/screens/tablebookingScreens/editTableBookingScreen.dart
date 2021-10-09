@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
+import 'package:machan_eats_application/pages/bottom_nav.dart';
 // import 'package:machan_eats_application/screens/tablebookingScreens/tableBookingList.dart';
 import '../app_bar.dart';
 import 'editTableBookingForm.dart';
@@ -170,7 +171,9 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
                 currentTime: widget.currentTime,
               ),
             ),
-          )
+          ),
+        bottomNavigationBar:
+        BottomNavBar(selectedIndex:1,),
       ),
     );
   }

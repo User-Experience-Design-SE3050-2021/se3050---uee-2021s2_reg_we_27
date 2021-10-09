@@ -48,8 +48,11 @@ class _EventsDetailsState extends State<EventsDetails> {
         ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 20,),
-          child: EventList(),
+          padding: const EdgeInsets.only(left: 16.0,right: 16.0,bottom: 20, top: 25.0,),
+          child:
+
+          EventList(),
+
         ),
       ),
         bottomNavigationBar: BottomNavBar(
