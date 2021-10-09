@@ -99,7 +99,16 @@ class _CardViewState extends State<CardView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CardDetailsScreen(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:10.0,right: 10.0,top: 5.0),
                   child: Image.asset(
@@ -109,7 +118,7 @@ class _CardViewState extends State<CardView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
