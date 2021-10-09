@@ -1,4 +1,4 @@
-// import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
 import 'package:machan_eats_application/validators/validator.dart';
 import 'package:flutter/material.dart';
@@ -115,9 +115,9 @@ class _EditTableBookingFormState extends State<EditTableBookingForm> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(
-                            value: value
-                        );
+                        if(value.isEmpty){
+                          return 'Purpose cannot be empty.';
+                        }
                         updatePurpose = value;
                       },
                       label: 'Purpose',
@@ -464,12 +464,12 @@ class _EditTableBookingFormState extends State<EditTableBookingForm> {
                         _isProcessing = false;
                       });
 
-                      // Fluttertoast.showToast(       //Toast Message
-                      //   msg: "Table Booking Details Updated Successfully",
-                      //   fontSize:16,
-                      //   backgroundColor: Colors.lightGreenAccent,
-                      //   textColor: Colors.black,
-                      // );
+                      Fluttertoast.showToast(       //Toast Message
+                        msg: "Table Booking Details Updated Successfully",
+                        fontSize:16,
+                        backgroundColor: Colors.lightGreenAccent,
+                        textColor: Colors.black,
+                      );
 
                       Navigator.of(context).pop();
                     }
