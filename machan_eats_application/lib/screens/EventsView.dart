@@ -209,7 +209,16 @@ class _EventsViewState extends State<EventsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RestaurantsView(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0),
                   child: Image.asset(
@@ -219,7 +228,7 @@ class _EventsViewState extends State<EventsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -308,7 +317,16 @@ class _EventsViewState extends State<EventsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RestaurantsView(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -318,7 +336,7 @@ class _EventsViewState extends State<EventsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
@@ -407,7 +425,16 @@ class _EventsViewState extends State<EventsView> {
             Row(
 
               children: <Widget>[
-
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => RestaurantsView(),
+                      ),
+                    );
+                  },
+                  child:
                 Padding(
                   padding: const EdgeInsets.only(left:2.0,right: 1.0,top: 5.0),
                   child: Image.asset(
@@ -417,7 +444,7 @@ class _EventsViewState extends State<EventsView> {
                     fit: BoxFit.cover,
                   ),
                 ),
-
+    ),
               ],
 
             ),
