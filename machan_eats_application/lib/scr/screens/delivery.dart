@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:machan_eats_application/scr/screens/show_delivery_details.dart';
 
 import 'package:machan_eats_application/validators/delivery_database.dart';
-import 'package:machan_eats_application/validators/validator.dart';
 
 import '../../custom_form_field_delivery.dart';
 
@@ -109,8 +108,12 @@ class _DeliveryState extends State<Delivery> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(value: value);
-                        getStreet = value;
+                        if (value.isEmpty) {
+                          return 'Please enter street';
+                        }
+                        // return null;
+                          getStreet = value;
+
                       },
                       label: 'Street',
                       hint: 'Enter the Street',
@@ -138,8 +141,12 @@ class _DeliveryState extends State<Delivery> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter city';
+                        }
+                        // return null;
                         getCity = value;
+
                       },
                       label: 'City',
                       hint: 'Enter the City',
@@ -166,9 +173,14 @@ class _DeliveryState extends State<Delivery> {
                       focusNode: widget.countryFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter country ';
+                        }
+                        // return null;
                         getCountry = value;
+
                       },
                       label: 'Country',
                       hint: 'Enter the Country',
@@ -195,9 +207,17 @@ class _DeliveryState extends State<Delivery> {
                       focusNode: widget.recieverNameFocusNode,
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
+
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter recievers name ';
+                        }
+                        else if (value.length <= 3) {
+                          return 'Enter Receiver name more than 3 characters';
+                        }
+                        // return null;
                         getRecieverName = value;
+
                       },
                       label: 'Receiver Name',
                       hint: 'Enter the Receiver Name',
@@ -225,8 +245,14 @@ class _DeliveryState extends State<Delivery> {
                       keyboardType: TextInputType.text,
                       inputAction: TextInputAction.next,
                       validator: (value) {
-                        Validator.validateField(value: value);
+                        if (value.isEmpty) {
+                          return 'Please enter a mobile number ';
+                        } else if (value.length <= 7) {
+                          return 'Enter a valid mobile number';
+                        }
+                        // return null;
                         getMobileNum = value;
+
                       },
                       label: 'Mobile Num',
                       hint: 'Enter the mobile number',
@@ -297,9 +323,7 @@ class _DeliveryState extends State<Delivery> {
                             MaterialPageRoute(
                               builder: (context) => ShowDetails(),
                             ),
-
                           );
-
                         }
                       },
                       child: Padding(
