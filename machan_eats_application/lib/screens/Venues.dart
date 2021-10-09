@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machan_eats_application/screens/addNewEventScreen.dart';
+import 'bottom_nav.dart';
 
 class Venues extends StatefulWidget {
   const Venues({Key? key}) : super(key: key);
@@ -372,7 +373,9 @@ class _VenuesState extends State<Venues> {
           ],
         ),
       ),
-    );
+        bottomNavigationBar: BottomNavBar(
+          selectedIndex: 1,
+        ));
   }
 }
 
