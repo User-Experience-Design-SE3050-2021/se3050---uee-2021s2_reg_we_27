@@ -34,6 +34,7 @@ class DeliveryList extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: ListTile(
+                  trailing: Icon(Icons.edit, color: black,),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
