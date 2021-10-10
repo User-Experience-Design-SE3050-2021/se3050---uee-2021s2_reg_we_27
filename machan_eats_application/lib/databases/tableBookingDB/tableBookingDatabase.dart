@@ -4,7 +4,6 @@ final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainCollection = _firestore.collection('users');
 
 class TableBookingDatabase {
-  // static String userId= 'uTodvKrEdM8glyifJD1K';
   static String? userId;
 
   static Future<void> addTableBooking({

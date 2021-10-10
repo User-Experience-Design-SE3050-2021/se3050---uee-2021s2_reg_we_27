@@ -59,9 +59,6 @@ class _EditTableBookingFormState extends State<EditTableBookingForm> {
 
   final TextEditingController _purposeController = TextEditingController();
   final TextEditingController _branchController = TextEditingController();
-  // final TextEditingController _tableSizeController = TextEditingController();
-
-  // final TextEditingController _decorationThemeController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
 
@@ -412,9 +409,6 @@ class _EditTableBookingFormState extends State<EditTableBookingForm> {
                         ],
                       ),
                     ),
-                    // Text(
-                    //   _dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()
-                    // ),
 
                   ],
                 )

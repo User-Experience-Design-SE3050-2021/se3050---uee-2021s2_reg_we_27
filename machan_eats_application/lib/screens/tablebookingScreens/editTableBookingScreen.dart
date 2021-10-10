@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
 import 'package:machan_eats_application/pages/bottom_nav.dart';
-// import 'package:machan_eats_application/screens/tablebookingScreens/tableBookingList.dart';
 import '../app_bar.dart';
 import 'editTableBookingForm.dart';
 
@@ -61,7 +60,6 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
               child: const Text('Cancel'),
             ),
             TextButton(
-              // onPressed: () => Navigator.pop(context, 'OK'),
               onPressed: () async {
                 setState(() {
                   _isDeleting = true;
@@ -88,7 +86,6 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
               child: const Text('OK'),
             ),
           ],
-          // backgroundColor: Colors.amber,
         );
       },
     );
@@ -126,22 +123,7 @@ class _EditTableBookingScreenState extends State<EditTableBookingScreen> {
                 ),
               ) : IconButton(
                   onPressed: () async {
-
                    await _showMyDialog(context);
-                    // setState(() {
-                    //   _isDeleting = true;
-                    // });
-                    //
-                    // // await TableBookingDatabase.deleteTableBooking(
-                    // //   docId: widget.documentId,
-                    // // );
-                    //
-                    // _showMyDialog();
-                    //
-                    // setState(() {
-                    //   _isDeleting = false;
-                    // });
-                    // Navigator.of(context).pop();
                   },
                   icon: Icon(Icons.delete_forever, color: Colors.black, size: 32,)
               ),

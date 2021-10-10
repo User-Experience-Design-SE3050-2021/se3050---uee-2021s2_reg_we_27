@@ -4,7 +4,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:machan_eats_application/databases/tableBookingDB/tableBookingDatabase.dart';
-// import 'package:machan_eats_application/validators/validator.dart';
 import '../../custom_form_field.dart';
 
 class AddTableBookingForm extends StatefulWidget {
@@ -24,8 +23,6 @@ class AddTableBookingForm extends StatefulWidget {
     required this.timeFocusNode,
   });
 
-  // DateTime _dateTime;
-
   @override
   _AddTableBookingFormState createState() => _AddTableBookingFormState();
 }
@@ -41,8 +38,6 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
 
   bool _isProcessing = false;
   final TextEditingController _purposeController = TextEditingController();
-  // final TextEditingController _dateController = TextEditingController();
-  // final TextEditingController _timeController = TextEditingController();
 
   String getPurpose = "";
   String getBranch="";
@@ -532,9 +527,6 @@ class _AddTableBookingFormState extends State<AddTableBookingForm> {
                         ],
                       ),
                     ),
-                    // Text(
-                    //   _dateTime == null ? 'Nothing has been picked yet' : _dateTime.toString()
-                    // ),
 
                   ],
                 )

@@ -14,7 +14,6 @@ class AppBarTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Image.asset('assets/logo.jpg',height:30, width: 30,),
         SizedBox(width: 8),
         Text(
           'Machan Eats',
